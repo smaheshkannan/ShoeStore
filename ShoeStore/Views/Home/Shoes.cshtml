@@ -1,0 +1,54 @@
+﻿@model List<ShoeStore.Models.Shoe>
+<div class="title">
+    <h2>@ViewBag.Title</h2>
+</div>
+<ul class="list-group">
+    @foreach( var shoe in Model )
+    {
+        <li class="list-group-item"> 
+            <div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Brand</th>
+                            <td>
+                                <a  href='javascript:Model.Main.GetBrandShoes(" @shoe.Brand ")' >@shoe.Brand
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Name</th>
+                            <td>@shoe.Name
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Price</th>
+                            <td>@string.Format("{0:c}", shoe.Price)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Description</th>
+                            <td>@shoe.Description
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Release Month</th>
+                            <td>
+                                <a href='javascript:Model.Main.GetMonthShoes(" @shoe.ReleaseMonth ")'>@shoe.ReleaseMonth
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @if( shoe.ImageName.Length > 0 )
+                                {
+                                    <img alt="" src="~/Content/Image/@shoe.ImageName">
+                                }
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </li>
+    }
+</ul>

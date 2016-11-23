@@ -1,0 +1,21 @@
+﻿@model List<ShoeStore.Models.Issue>
+<div class="title">
+      <h2>Open Issues</h2>
+</div>
+<table class="table table-bordered table-hover">
+      <tbody><tr class="issues_header_row">
+        <th></th>
+        <th>Title</th>
+        <th>Severity</th>
+        <th>Description</th>
+      </tr>
+          @foreach( var issue in Model)
+          {
+            <tr class="issue_row" id="issue_1">
+                <td class="issue_id">@issue.Id</td>
+                <td class="issue_title">@issue.title</td>
+                <td class="issue_severity">@issue.Severity.ToString()</td>
+                <td class="issue_description">@issue.description</td>
+            </tr>      
+          }
+    </tbody></table>
